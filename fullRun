@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#convert -density 800 -trim {input default file} -quality 100 {output default file}
+
+
+./runOctaveSet $1
+
+./webSearch $1
+
+python src/termExtraction/word_features.py $1 newUrlList.url
+
+./generateClassification $1
